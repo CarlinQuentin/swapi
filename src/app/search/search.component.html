@@ -1,0 +1,20 @@
+<h1>Search The Star Wars Api</h1>
+
+<div>
+  <form [formGroup]='Search' (ngSubmit)='getData()'>
+    <select formControlName='item'>
+      <option value='people'>People</option>
+      <option value='starships'>Ships</option>
+      <option value='films'>Films</option>
+    </select>
+    <input type="text" placeholder="search" formControlName='name'>
+    <button type='submit' [disabled]='!Search.valid'>Get Info</button>
+  </form>
+  
+  <ul>
+    <li ngFor='let in of info'>
+      {{info | json}}
+    </li>
+  </ul>
+
+</div>
